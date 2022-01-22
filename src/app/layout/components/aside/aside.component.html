@@ -1,0 +1,8 @@
+<div class="list-group vh-100 bg-dark text-white">
+  <div class="list-group-item bg-dark text-white">
+    <nav class="navbar navbar-light bg-dark">
+      <a class="navbar-brand text-white" routerLink="/">Life Manager</a>
+    </nav>
+  </div>
+  <button *ngFor="let item of listItems; let i = index" type="button" [class]="'list-group-item list-group-item-action text-white' + (i == 0 ? ' bg-primary' : ' bg-dark')" (click)="activeElement(i)" [routerLink]="item.router">{{ item.name }}</button>
+</div>

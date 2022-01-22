@@ -8,8 +8,25 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: 'dashboard',
+        loadChildren: () => import('./components/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'pomodoro',
+        loadChildren: () => import('./../modules/pomodoro/pomodoro.module').then(m => m.PomodoroModule)
+      },
+      {
+        path: 'todo',
+        loadChildren: () => import('./../modules/todo/todo.module').then(m => m.TodoModule)
+      },
+      {
         path: '**',
         redirectTo: 'error/404'
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
       }
     ]
   }

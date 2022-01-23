@@ -1,8 +1,19 @@
-<div class="list-group vh-100 bg-dark text-white">
-  <div class="list-group-item bg-dark text-white">
-    <nav class="navbar navbar-light bg-dark">
-      <a class="navbar-brand text-white" routerLink="/">Life Manager</a>
+<div class="list-group vh-100 bg-dark text-white" >
+  <div class="list-group-item bg-dark text-white d-flex pr-1">
+    <nav class="navbar navbar-light bg-dark mr-1 p-0">
+      <a class="navbar-brand text-white mr-0" routerLink="/">
+        <i class="fas bg-transparent fa-heart text-danger"></i>
+        <p *ngIf="!collapsed" class="bg-transparent d-inline ml-3">Life Manager</p>
+      </a>
     </nav>
+    <div class="bg-dark d-flex align-items-center">
+      <button class="btn bg-transparent">
+        <i [class]="'fas bg-transparent text-primary' + buttonClass" (click)="collapseState()"></i>
+      </button>
+    </div>
   </div>
-  <button *ngFor="let item of listItems; let i = index" type="button" [class]="'list-group-item list-group-item-action text-white' + (i == 0 ? ' bg-primary' : ' bg-dark')" (click)="activeElement(i)" [routerLink]="item.router">{{ item.name }}</button>
+  <button (mouseleave)="collapseState()" (mouseenter)="collapseState(1)" *ngFor="let item of listItems; let i = index" type="button" [class]="'list-group-item list-group-item-action text-white' + (collapsed == true ? ' text-center' : '') + (i == 0 ? ' bg-primary' : ' bg-dark')" (click)="activeElement(i)" [routerLink]="item.router">
+    <i [class]="'fas bg-transparent mx-3 ' + item.icon"></i>
+    <p *ngIf="!collapsed" class="bg-transparent d-inline ml-3">{{ item.name }}</p>
+  </button>
 </div>

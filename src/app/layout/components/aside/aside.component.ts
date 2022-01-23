@@ -9,30 +9,47 @@ export class AsideComponent implements OnInit {
   listItems = [
     {
       name: 'Dashboard',
-      router: '/dashboard'
+      router: '/dashboard',
+      icon: 'fa-tachometer-alt'
     },
     {
       name: 'Pomodoro',
-      router: '/pomodoro'
+      router: '/pomodoro',
+      icon: 'fa-clock'
     },
     {
       name: 'To-do List',
-      router: '/todo'
+      router: '/todo',
+      icon: 'fa-check-square'
     },
     {
       name: 'Notes',
-      router: '/notes'
+      router: '/notes',
+      icon: 'fa-sticky-note'
     },
     {
       name: 'Calendar',
-      router: '/calendar'
+      router: '/calendar',
+      icon: 'fa-calendar-alt'
     },
   ]
   listButtons = document.getElementsByTagName('button');
+  collapsed = true;
+  buttonClass = ' fa-arrow-alt-circle-right';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  collapseState(num?: number) {
+    this.collapsed = !this.collapsed;
+    if(this.collapsed && num)
+      this.collapsed = !this.collapsed;
+    if(this.collapsed)
+      this.buttonClass = ' fa-arrow-alt-circle-right';
+    else
+      this.buttonClass = ' fa-arrow-alt-circle-left'
   }
 
   activeElement(i: number) {

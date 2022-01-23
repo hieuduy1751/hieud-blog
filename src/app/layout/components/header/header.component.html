@@ -1,10 +1,10 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item bg-transparent">
-      <a class="text-primary" routerLink="/">Life Manager</a>
+<nav aria-label="breadcrumb" class="bg-secondary">
+  <ol class="breadcrumb bg-secondary">
+    <li class="breadcrumb-item bg-transparent active text-light">
+      Life Manager
     </li>
     <li class="breadcrumb-item bg-transparent" *ngFor="let item of routerItems;let i = index">
-      <a class="text-primary" [routerLink]="routerChanges(i) + '/' + item">{{ item }}</a>
+      <a class="text-white" [routerLink]="routerChanges(i + 1)">{{ item }}</a>
     </li>
   </ol>
 </nav>

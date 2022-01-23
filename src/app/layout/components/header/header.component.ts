@@ -20,6 +20,6 @@ export class HeaderComponent implements OnInit {
 
   routerChanges(numOfRouter?: number): string {
     this.routerItems = this.router.url.split('/').slice(1);
-    return this.routerPath = this.routerItems.slice(0, numOfRouter ? numOfRouter : -1).join('/')
+    return this.routerPath = this.routerItems.slice(0, numOfRouter ? numOfRouter : undefined).join('/')
   }
 }

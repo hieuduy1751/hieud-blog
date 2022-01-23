@@ -2,9 +2,11 @@
   <div>
     <app-aside></app-aside>
   </div>
-  <div class="flex-grow-1">
+  <div class="flex-grow-1 d-flex flex-column">
     <app-header></app-header>
-    <router-outlet></router-outlet>
+    <div class="flex-grow-1">
+      <router-outlet></router-outlet>
+    </div>
     <app-footer></app-footer>
   </div>
 </div>

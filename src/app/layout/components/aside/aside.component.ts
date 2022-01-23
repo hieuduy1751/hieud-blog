@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { AsideMenuConfig } from 'src/app/configs/aside-menu.config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
@@ -12,7 +13,9 @@ export class AsideComponent implements OnInit {
   buttonClass = ' fa-arrow-alt-circle-right';
   listItems = AsideMenuConfig.listItems;
 
-  constructor() { }
+  constructor(private router: Router) { 
+   }
+  path = this.router.url.split('/').slice(1);
 
   ngOnInit(): void {
   }
@@ -29,9 +32,9 @@ export class AsideComponent implements OnInit {
 
   activeElement(i: number) {
     for(let x = 0; x < this.listItems.length; x++)
-      if(x == i) {
-        this.listButtons[i].classList.toggle('bg-primary');
-        this.listButtons[i].classList.toggle('bg-dark');
+      if(x == i + 1) {
+        this.listButtons[i + 1].classList.toggle('bg-primary');
+        this.listButtons[i + 1].classList.toggle('bg-dark');
       } else {
         this.listButtons[x].classList.remove('bg-primary');
         this.listButtons[x].classList.add('bg-dark');

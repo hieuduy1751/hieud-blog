@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { AsideMenuConfig } from 'src/app/configs/aside-menu.config';
 
 @Component({
   selector: 'app-aside',
@@ -6,36 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
-  listItems = [
-    {
-      name: 'Dashboard',
-      router: '/dashboard',
-      icon: 'fa-tachometer-alt'
-    },
-    {
-      name: 'Pomodoro',
-      router: '/pomodoro',
-      icon: 'fa-clock'
-    },
-    {
-      name: 'To-do List',
-      router: '/todo',
-      icon: 'fa-check-square'
-    },
-    {
-      name: 'Notes',
-      router: '/notes',
-      icon: 'fa-sticky-note'
-    },
-    {
-      name: 'Calendar',
-      router: '/calendar',
-      icon: 'fa-calendar-alt'
-    },
-  ]
   listButtons = document.getElementsByTagName('button');
   collapsed = true;
   buttonClass = ' fa-arrow-alt-circle-right';
+  listItems = AsideMenuConfig.listItems;
 
   constructor() { }
 

@@ -1,1 +1,79 @@
-<p>list works!</p>
+<div class="container-fluid row m-0 h-100 bg-secondary p-0">
+  <div class="col-3 mr-3 bg-dark p-3 rounded-lg">
+    <div class="container-fluid h-100 p-0 m-0 d-flex flex-column">
+      <div class="h3">List</div>
+      <div class="flex-grow-1 mb-3">
+        <button [class]="'text-white d-block w-100 btn mb-3 p-3 listGroup ' + (i == 0 ? 'bg-primary' : 'bg-secondary')"
+          *ngFor="let item of data; let i = index" (click)="activeElement(i);selectList(item.groupId)">
+          <i [class]="'text-white fas fa-' + item.icon"></i>
+          {{ item.groupName }}
+        </button>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn text-white bg-secondary">
+          <i class="fas fa-plus"></i>
+          New list
+        </button>
+        <button class="btn text-white bg-danger">
+          <i class="fas fa-minus"></i>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col bg-dark p-3 rounded-lg">
+    <div class="container-fluid h-100 p-0 m-0 d-flex flex-column">
+      <div class="h3">Tasks</div>
+      <div class="flex-grow-1 mb-3">
+        <ng-container *ngFor="let todo of this.selectedList.items">
+          <div class="text-white bg-secondary d-block w-100 btn text-left mb-3 p-3" *ngIf="!todo.done" (click)="selectItem(todo.itemId)">
+            <i class="fas text-white fa-square mr-3" (click)="changeState(todo.itemId)"></i>
+            {{ todo.name }}
+          </div>
+        </ng-container>
+        <hr>
+        <ng-container *ngFor="let todo of this.selectedList.items">
+          <div class=" text-white bg-secondary d-block w-100 btn text-left mb-3 p-3" *ngIf="todo.done" (click)="selectItem(todo.itemId)">
+            <i class="fas text-white fa-check-square mr-4" (click)="changeState(todo.itemId)"></i>
+            <del>{{ todo.name }}</del>
+          </div>
+        </ng-container>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn text-white bg-secondary">
+          <i class="fas fa-plus"></i>
+          New
+        </button>
+        <button class="btn text-white bg-danger">
+          <i class="fas fa-minus"></i>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-3 ml-3 bg-dark p-3 rounded-lg">
+    <div class="container-fluid h-100 p-0 m-0">
+      <div class="h3">Statistics</div>
+      <hr>
+      <div class="h4">Total</div>
+      <div class="text-white bg-secondary d-block w-100 btn text-left mb-3 p-3 d-flex justify-content-between">
+        <p class="d-inline-block m-0">Todo</p>
+        <p class="d-inline-block m-0">9</p> 
+      </div>
+      <div class="text-white bg-secondary d-block w-100 btn text-left mb-3 p-3 d-flex justify-content-between">
+        <p class="d-inline-block m-0">Done</p>
+        <p class="d-inline-block m-0">10</p>
+      </div>
+      <hr>
+      <div class="h4">This list</div>
+      <div class="text-white bg-secondary d-block w-100 btn text-left mb-3 p-3 d-flex justify-content-between">
+        <p class="d-inline-block m-0">Todo</p>
+        <p class="d-inline-block m-0">9</p> 
+      </div>
+      <div class="text-white bg-secondary d-block w-100 btn text-left mb-3 p-3 d-flex justify-content-between">
+        <p class="d-inline-block m-0">Done</p>
+        <p class="d-inline-block m-0">10</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subscription } from 'rxjs';
-import { ToDoList } from 'src/app/_fake/todo.list'; //fake api
 
 @Component({
   selector: 'app-list',
@@ -9,7 +7,7 @@ import { ToDoList } from 'src/app/_fake/todo.list'; //fake api
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  data = ToDoList.data;
+  data = [];
   listGroup = document.getElementsByClassName('listGroup');
   selectedList: any;
   selectedItem: any;
@@ -34,7 +32,7 @@ export class ListComponent implements OnInit {
   }
 
   selectList(id: string) {
-    this.selectedList = this.data.find((item) => {
+    this.selectedList = this.data.find((item:any) => {
       return item.groupId == id;
     })
   }

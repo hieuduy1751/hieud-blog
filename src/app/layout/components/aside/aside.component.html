@@ -12,7 +12,7 @@
       </button>
     </div>
   </div>
-  <button (mouseleave)="collapseState()" (mouseenter)="collapseState(1)" *ngFor="let item of listItems; let i = index" type="button" [class]="'list-group-item list-group-item-action text-white' + (collapsed == true ? ' text-center' : '') + (item.router == '/' + this.path[0] ? ' bg-primary' : ' bg-dark')" (click)="activeElement(i)" [routerLink]="item.router">
+  <button (mouseleave)="collapseState()" (mouseenter)="collapseState(1)" *ngFor="let item of listItems; let i = index" type="button" [class]="'list-group-item list-group-item-action text-white' + (collapsed == true ? ' text-center' : '') + (item.router == this.path ? ' bg-primary' : ' bg-dark')" (click)="activeElement(i)" [routerLink]="item.router">
     <i [class]="'fas bg-transparent mx-3 ' + item.icon"></i>
     <p *ngIf="!collapsed" class="bg-transparent d-inline ml-3">{{ item.name }}</p>
   </button>

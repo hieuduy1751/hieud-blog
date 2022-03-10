@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "life-assistant-68151": {
+      "hosting": {
+        "hieud-blog": [
+          "life-assistant-68151"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "life-assistant-68151"
+  }
+}

@@ -15,7 +15,7 @@ export class AsideComponent implements OnInit {
 
   constructor(private router: Router) { 
    }
-  path = this.router.url.split('/').slice(1);
+  path = this.router.url;
 
   ngOnInit(): void {
   }

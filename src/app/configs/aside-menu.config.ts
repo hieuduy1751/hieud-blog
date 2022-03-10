@@ -2,27 +2,27 @@ export const AsideMenuConfig = {
     listItems: [
       {
         name: 'Dashboard',
-        router: '/dashboard',
+        router: '/menu/dashboard',
         icon: 'fa-tachometer-alt'
       },
       {
         name: 'Pomodoro',
-        router: '/pomodoro',
+        router: '/menu/pomodoro',
         icon: 'fa-clock'
       },
       {
         name: 'To-do List',
-        router: '/todo',
+        router: '/menu/todo',
         icon: 'fa-check-square'
       },
       {
         name: 'Notes',
-        router: '/notes',
+        router: '/menu/notes',
         icon: 'fa-sticky-note'
       },
       {
         name: 'Calendar',
-        router: '/calendar',
+        router: '/menu/calendar',
         icon: 'fa-calendar-alt'
       },
     ]

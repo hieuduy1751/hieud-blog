@@ -1,0 +1,13 @@
+.footer {
+    z-index: 100;
+    position: relative;
+    .footer__left {
+        & > p {
+            font-size: 0.75rem;
+            color: rgb(168, 168, 168) !important;
+        }
+        ul {
+            list-style-type: none;
+        }
+    }
+}
